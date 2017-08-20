@@ -5,7 +5,7 @@ class Wheat < Field
   def initialize(field_type, hectares)
     super(field_type, hectares)
     @food_per_hectare = 30
-    @total_food
+    @total_wheat
   end
 
   def field_type
@@ -20,9 +20,12 @@ class Wheat < Field
     @food_per_hectare
   end
 
-  def total_food
-    @total_food = field_size * food_per_hectare
-    return @total_food
+  def get_total_wheat
+    @total_wheat = field_size * food_per_hectare
+  end
+
+  def total_wheat
+    @total_wheat
   end
 
 end

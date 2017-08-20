@@ -6,6 +6,7 @@ class Farm
 
   def initialize(name)
     puts "OK! Here we are at #{name}'s farm."
+    @total_food = total_corn + total_wheat
   end
 
   def options
@@ -31,13 +32,6 @@ class Farm
       else
         puts "Invalid option. Please select from the main menu options above."
         user_input = gets.chomp.to_i
-
-
-      # while user_input > 7 || user_input < 1
-      #   puts "Invalid option. Please select from the main menu options and enter option number."
-      #   user_input = gets.chomp.to_i
-      # end
-      # call_option(user_input)
       end
     end
   end
@@ -54,7 +48,19 @@ class Farm
   end
 
   def add_new_field
+    puts "What kind of field is it? corn or wheat?"
+    field_type = gets.chomp
 
+    until field_type == "corn" || field_type == "wheat"
+      puts "Sorry but your farm is only capable to produce either corn or wheat ..."
+      puts "What kind of field is it? Choose either corn or wheat."
+      field_type = gets.chomp
+    end
+
+    puts "OK, so how large is the field in hectares?"
+    field_size = gets.chomp.to_i
+
+    puts "OK! You added a #{field_type} field of #{field_size} hectares!"
   end
 
   def harvest_field
@@ -63,6 +69,7 @@ class Farm
 
   def status_of_field
 
+    puts "The farm has #{@total_food} food so far."
   end
 
   def take_break
