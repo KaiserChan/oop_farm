@@ -6,7 +6,6 @@ class Farm
 
   def initialize(name)
     puts "OK! Here we are at #{name}'s farm."
-    # @total_food = total_corn + total_wheat
     @corn_field = []
     @total_corn = []
     @wheat_field = []
@@ -79,7 +78,12 @@ class Farm
   end
 
   def harvest_field
-
+    puts "OK its time to harvest everything."
+    puts "The farm has a total food production of #{total_food} food ..."
+    puts "... and you just harvested all #{total_food} food!"
+    puts "Now all your fields are empty. You need to create new fields if you want to grow more food."
+    corn_field.clear
+    wheat_field.clear
   end
 
   def status_of_field
@@ -95,9 +99,7 @@ class Farm
       @total_wheat << check.get_total_wheat
     end
 
-    puts "The farm has a total food production capacity of #{total_food} food."
-
-    puts "The farm has #{} food harvested so far."
+    puts "The farm has 0 food harvested so far."
   end
 
   def take_break
@@ -105,12 +107,11 @@ class Farm
     puts "Cus you are too tired and dozed off ...zzz..z...zz..."
   end
 
-
-  def corn_field_size
+  def corn_field
     @corn_field
   end
 
-  def wheat_field_type
+  def wheat_field
     @wheat_field
   end
 
@@ -129,6 +130,6 @@ class Farm
 end
 
 
-farm = Farm.new("Kaiser")
+farm = Farm.new("Old McDonald")
 
 farm.options
