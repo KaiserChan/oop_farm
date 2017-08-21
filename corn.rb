@@ -24,8 +24,8 @@ class Corn < Field
     @total_corn = field_size * food_per_hectare
   end
 
-  def total_corn
-    @total_corn
-  end
+  # def total_corn
+  #   @total_corn
+  # end
 
 end

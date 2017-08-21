@@ -6,7 +6,11 @@ class Farm
 
   def initialize(name)
     puts "OK! Here we are at #{name}'s farm."
-    @total_food = total_corn + total_wheat
+    # @total_food = total_corn + total_wheat
+    @corn_field = []
+    @total_corn = []
+    @wheat_field = []
+    @total_wheat = []
   end
 
   def options
@@ -58,9 +62,20 @@ class Farm
     end
 
     puts "OK, so how large is the field in hectares?"
-    field_size = gets.chomp.to_i
+    hectares = gets.chomp.to_i
 
-    puts "OK! You added a #{field_type} field of #{field_size} hectares!"
+    puts "OK! You added a #{field_type} field of #{hectares} hectares!"
+
+    if field_type == "corn"
+      corn_field = Corn.new(field_type, hectares)
+      @corn_field << corn_field
+      return @corn_field
+    elsif field_type == "wheat"
+      wheat_field = Wheat.new(field_type, hectares)
+      @wheat_field << wheat_field
+      return @wheat_field
+    end
+
   end
 
   def harvest_field
@@ -68,12 +83,46 @@ class Farm
   end
 
   def status_of_field
+    @corn_field.each do |check|
+      puts "#{check.field_type} field is #{check.field_size} hectares big."
+      puts "This field produces #{check.get_total_corn} food."
+      @total_corn << check.get_total_corn
+    end
 
-    puts "The farm has #{@total_food} food so far."
+    @wheat_field.each do |check|
+      puts "#{check.field_type} field is #{check.field_size} hectares big."
+      puts "This field produces #{check.get_total_wheat} food."
+      @total_wheat << check.get_total_wheat
+    end
+
+    puts "The farm has a total food production capacity of #{total_food} food."
+
+    puts "The farm has #{} food harvested so far."
   end
 
   def take_break
+    puts "#{corn_field_type.field_type} is gorgeous"
+  end
 
+
+  def corn_field_type
+    @corn_field
+  end
+
+  def wheat_field_type
+    @wheat_field
+  end
+
+  def total_corn
+    @total_corn
+  end
+
+  def total_wheat
+    @total_wheat
+  end
+
+  def total_food
+      total_corn.sum + total_wheat.sum
   end
 
 end

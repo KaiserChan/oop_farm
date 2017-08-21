@@ -24,8 +24,8 @@ class Wheat < Field
     @total_wheat = field_size * food_per_hectare
   end
 
-  def total_wheat
-    @total_wheat
-  end
+  # def total_wheat
+  #   @total_wheat
+  # end
 
 end
