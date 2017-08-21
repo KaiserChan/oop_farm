@@ -101,11 +101,12 @@ class Farm
   end
 
   def take_break
-    puts "#{corn_field_type.field_type} is gorgeous"
+    puts "Whatever field you are staring at, you are not really staring at it ..."
+    puts "Cus you are too tired and dozed off ...zzz..z...zz..."
   end
 
 
-  def corn_field_type
+  def corn_field_size
     @corn_field
   end
 
